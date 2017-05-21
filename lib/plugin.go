@@ -28,7 +28,7 @@ func New(qChan qtypes.QChan, cfg *config.Config, name string) (Plugin, error) {
 
 func (p *Plugin) Run() {
 	tickSec := p.CfgIntOr("ticker-sec", 1)
-	p.Log("info", "Start internal collector v" + version)
+	p.Log("notice", "Start internal collector v" + version)
 	ticker := time.NewTicker(time.Duration(tickSec)*time.Second).C
 	ims := qtypes.NewIntMemoryStats(p.Name)
 	for {
